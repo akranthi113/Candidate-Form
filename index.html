@@ -298,9 +298,9 @@ textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
           <div class="error-msg" id="phoneErr">Enter valid 10-digit number.</div>
         </div>
         <div class="form-group">
-          <label>Alternative Number</label>
-          <input type="tel" id="altphone" placeholder="Optional" maxlength="10" inputmode="numeric">
-          <div class="error-msg" id="altphoneErr">Must be 10 digits.</div>
+          <label>Alternative Number <span class="req">*</span></label>
+          <input type="tel" id="altphone" placeholder="10-digit" maxlength="10" inputmode="numeric">
+          <div class="error-msg" id="altphoneErr">Enter valid 10-digit number.</div>
         </div>
       </div>
 
@@ -337,10 +337,16 @@ textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
       <div class="form-group" style="margin-bottom:0">
         <label>Marital Status</label>
         <div class="pill-group">
-          <input type="radio" name="marital" id="mSingle" value="Single">
+          <input type="radio" name="marital" id="mSingle" value="Single" onchange="toggleMaritalOther()">
           <label for="mSingle">Single</label>
-          <input type="radio" name="marital" id="mMarried" value="Married">
+          <input type="radio" name="marital" id="mMarried" value="Married" onchange="toggleMaritalOther()">
           <label for="mMarried">Married</label>
+          <input type="radio" name="marital" id="mOther" value="Other" onchange="toggleMaritalOther()">
+          <label for="mOther">Other</label>
+        </div>
+        <div id="maritalOtherWrap" style="display:none; margin-top:10px;">
+          <input type="text" id="maritalOtherText" placeholder="Please specify your marital status">
+          <div class="error-msg" id="maritalOtherErr">Please specify your marital status.</div>
         </div>
       </div>
     </div>
@@ -440,7 +446,25 @@ function v(id) {
 }
 function radio(name) {
   const el = document.querySelector(`input[name="${name}"]:checked`);
-  return el ? el.value : "";
+  if (!el) return "";
+  if (name === "marital" && el.value === "Other") {
+    const custom = v("maritalOtherText");
+    return custom ? custom : "Other";
+  }
+  return el.value;
+}
+
+function toggleMaritalOther() {
+  const isOther = document.getElementById("mOther").checked;
+  const wrap = document.getElementById("maritalOtherWrap");
+  wrap.style.display = isOther ? "block" : "none";
+  if (isOther) {
+    document.getElementById("maritalOtherText").focus();
+  } else {
+    document.getElementById("maritalOtherText").value = "";
+    document.getElementById("maritalOtherText").classList.remove("err");
+    document.getElementById("maritalOtherErr").classList.remove("show");
+  }
 }
 function setErr(id, show) {
   const el  = document.getElementById(id);
@@ -454,11 +478,23 @@ function validate() {
   const name  = v("name"), phone = v("phone"),
         alt   = v("altphone"), email = v("email"), aadh = v("aadhaar");
 
-  setErr("name",    !name);                                                       if (!name) ok = false;
-  setErr("phone",   !/^[0-9]{10}$/.test(phone));                                  if (!/^[0-9]{10}$/.test(phone)) ok = false;
-  setErr("altphone", alt  && !/^[0-9]{10}$/.test(alt));                           if (alt  && !/^[0-9]{10}$/.test(alt)) ok = false;
-  setErr("email",    email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));         if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) ok = false;
-  setErr("aadhaar",  aadh  && !/^[0-9]{12}$/.test(aadh));                         if (aadh  && !/^[0-9]{12}$/.test(aadh)) ok = false;
+  setErr("name",     !name);                                                        if (!name) ok = false;
+  setErr("phone",    !/^[0-9]{10}$/.test(phone));                                   if (!/^[0-9]{10}$/.test(phone)) ok = false;
+  setErr("altphone", !/^[0-9]{10}$/.test(alt));                                     if (!/^[0-9]{10}$/.test(alt)) ok = false;
+  setErr("email",    email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));           if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) ok = false;
+  setErr("aadhaar",  aadh  && !/^[0-9]{12}$/.test(aadh));                           if (aadh  && !/^[0-9]{12}$/.test(aadh)) ok = false;
+
+  // marital other text required if "Other" selected
+  if (document.getElementById("mOther").checked) {
+    const otherText = v("maritalOtherText");
+    const errEl = document.getElementById("maritalOtherErr");
+    const inEl  = document.getElementById("maritalOtherText");
+    if (!otherText) {
+      inEl.classList.add("err"); errEl.classList.add("show"); ok = false;
+    } else {
+      inEl.classList.remove("err"); errEl.classList.remove("show");
+    }
+  }
 
   return ok;
 }
