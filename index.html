@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Candidate Registration Form</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+input:invalid {
+    border-color: #e74c3c;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: #25D366;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1fa855;
+}
+
+.note {
+    font-size: 13px;
+    color: #666;
+    margin-top: 10px;
+}
+
+.error {
+    color: #e74c3c;
+    font-size: 12px;
+    margin-top: 4px;
+    display: none;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Candidate Registration Form</h2>
+
+    <div id="candidateForm">
+
+        <div class="form-group">
+            <label>Name *</label>
+            <input type="text" id="name" placeholder="Full Name" required>
+        </div>
+
+        <div class="form-group">
+            <label>Father's Name</label>
+            <input type="text" id="father" placeholder="Father's Full Name">
+        </div>
+
+        <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" id="phone" placeholder="10-digit mobile number"
+                   pattern="[0-9]{10}" maxlength="10" required>
+            <span class="error" id="phoneError">Please enter a valid 10-digit phone number.</span>
+        </div>
+
+        <div class="form-group">
+            <label>Alternative Number</label>
+            <input type="tel" id="altphone" placeholder="Alternative mobile number"
+                   pattern="[0-9]{10}" maxlength="10">
+            <span class="error" id="altphoneError">Please enter a valid 10-digit phone number.</span>
+        </div>
+
+        <div class="form-group">
+            <label>Email ID</label>
+            <input type="email" id="email" placeholder="example@email.com">
+        </div>
+
+        <div class="form-group">
+            <label>Date of Birth</label>
+            <input type="date" id="dob" max="">
+        </div>
+
+        <div class="form-group">
+            <label>Gender</label>
+            <select id="gender">
+                <option value="">Select</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Marital Status</label>
+            <select id="marital">
+                <option value="">Select</option>
+                <option>Single</option>
+                <option>Married</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Aadhar Number</label>
+            <input type="text" id="aadhaar" placeholder="12-digit Aadhaar number"
+                   pattern="[0-9]{12}" maxlength="12" inputmode="numeric">
+            <span class="error" id="aadhaarError">Please enter a valid 12-digit Aadhaar number.</span>
+        </div>
+
+        <div class="form-group">
+            <label>Highest Qualification</label>
+            <input type="text" id="qualification" placeholder="e.g. B.Tech, MBA, 12th Pass">
+        </div>
+
+        <div class="form-group">
+            <label>Residential Address with Pincode</label>
+            <textarea id="address" rows="4" placeholder="House No, Street, City, State - Pincode"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Spoken Languages</label>
+            <input type="text" id="languages" placeholder="e.g. Telugu, Hindi, English">
+        </div>
+
+        <div class="form-group">
+            <label>Experience</label>
+            <input type="text" id="experience" placeholder="e.g. 2 years in Sales, Fresher">
+        </div>
+
+        <div class="form-group">
+            <label>How Often Will You Be Able To Join?</label>
+            <input type="text" id="joining" placeholder="e.g. Immediately, After 15 days">
+        </div>
+
+        <div class="form-group">
+            <label>Resume Link (Google Drive / Naukri Profile / Resume URL)</label>
+            <input type="url" id="resume" placeholder="https://drive.google.com/...">
+        </div>
+
+        <button type="button" onclick="sendWhatsApp()">
+            Send Application via WhatsApp
+        </button>
+
+        <p class="note">
+            After clicking the button, WhatsApp will open with your details filled automatically.
+            Please attach your resume if you have not provided a resume link above.
+        </p>
+
+    </div>
+
+</div>
+
+<script>
+
+    // Set max date for DOB to today (prevents future dates)
+    document.getElementById("dob").max = new Date().toISOString().split("T")[0];
+
+    function val(id) {
+        const v = document.getElementById(id).value.trim();
+        return v === "" ? "N/A" : v;
+    }
+
+    function sendWhatsApp() {
+
+        const name    = document.getElementById("name").value.trim();
+        const phone   = document.getElementById("phone").value.trim();
+        const altphone = document.getElementById("altphone").value.trim();
+        const aadhaar  = document.getElementById("aadhaar").value.trim();
+
+        let valid = true;
+
+        // Required: Name
+        if (name === "") {
+            alert("Please enter your Name.");
+            document.getElementById("name").focus();
+            return;
+        }
+
+        // Required: Phone — must be 10 digits
+        if (!/^[0-9]{10}$/.test(phone)) {
+            document.getElementById("phoneError").style.display = "block";
+            document.getElementById("phone").focus();
+            valid = false;
+        } else {
+            document.getElementById("phoneError").style.display = "none";
+        }
+
+        // Optional: Alt phone — validate only if filled
+        if (altphone !== "" && !/^[0-9]{10}$/.test(altphone)) {
+            document.getElementById("altphoneError").style.display = "block";
+            valid = false;
+        } else {
+            document.getElementById("altphoneError").style.display = "none";
+        }
+
+        // Optional: Aadhaar — validate only if filled
+        if (aadhaar !== "" && !/^[0-9]{12}$/.test(aadhaar)) {
+            document.getElementById("aadhaarError").style.display = "block";
+            valid = false;
+        } else {
+            document.getElementById("aadhaarError").style.display = "none";
+        }
+
+        if (!valid) return;
+
+        const resumeValue = val("resume");
+        const resumeLine  = resumeValue === "N/A"
+            ? "Resume Link: Please find my resume attached."
+            : "Resume Link: " + resumeValue;
+
+        const message =
+`Hello, I would like to apply for the position. Please find my details below:
+
+Name: ${val("name")}
+Father's Name: ${val("father")}
+Phone Number: ${val("phone")}
+Alternative Number: ${val("altphone")}
+Email ID: ${val("email")}
+Date of Birth: ${val("dob")}
+Gender: ${val("gender")}
+Marital Status: ${val("marital")}
+Aadhar Number: ${val("aadhaar")}
+Highest Qualification: ${val("qualification")}
+Residential Address with Pincode: ${val("address")}
+Spoken Languages: ${val("languages")}
+Experience: ${val("experience")}
+Joining Availability: ${val("joining")}
+${resumeLine}`;
+
+        const whatsappURL = "https://wa.me/919398077468?text=" + encodeURIComponent(message);
+        window.open(whatsappURL, "_blank");
+    }
+
+</script>
+
+</body>
+</html>
