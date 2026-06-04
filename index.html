@@ -507,6 +507,11 @@ function generateFormat() {
   }
 
   const f = (label, val) => `${label}: ${val || ""}`;
+  const formatDOB = (val) => {
+    if (!val) return "";
+    const [y, m, d] = val.split("-");
+    return `${d}-${m}-${y}`;
+  };
 
   generatedMsg =
 `Kindly fill this and send me back
@@ -516,7 +521,7 @@ ${f("Father's Name",                     v("father"))}
 ${f("Phone Number",                      v("phone"))}
 ${f("Alternative Number",                v("altphone"))}
 ${f("Email ID",                          v("email"))}
-${f("Date of Birth",                     v("dob"))}
+${f("Date of Birth",                     formatDOB(v("dob")))}
 ${f("Gender",                            radio("gender"))}
 ${f("Marital status",                    radio("marital"))}
 ${f("Aadhar Number",                     v("aadhaar"))}
