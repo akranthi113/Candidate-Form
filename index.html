@@ -234,6 +234,57 @@ textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
   <!-- ══ FORM SECTION ══ -->
   <div id="formSection">
 
+    <!-- Top Instructions -->
+    <div style="
+      background:#fff;
+      border-radius:var(--radius);
+      border:1.5px solid #b5e0c5;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      margin-bottom:14px;
+    ">
+      <div style="
+        background:var(--green-light);
+        border-bottom:1.5px solid #b5e0c5;
+        padding:11px 16px;
+        display:flex; align-items:center; gap:7px;
+        font-size:12px; font-weight:700;
+        text-transform:uppercase; letter-spacing:0.5px;
+        color:var(--green-dark);
+      ">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="#1aab52" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        How This Works
+      </div>
+      <div style="padding:14px 16px;">
+        <p style="font-size:13px;color:#374151;line-height:1.6;margin-bottom:12px;">
+          Follow these simple steps to submit your application to the recruiter:
+        </p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <div style="width:26px;height:26px;min-width:26px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;">1</div>
+            <div>
+              <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;">Fill in your details</div>
+              <div style="font-size:12px;color:var(--muted);line-height:1.5;">Complete all the fields in the form below. The live preview at the bottom updates as you type so you can see your message taking shape.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <div style="width:26px;height:26px;min-width:26px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;">2</div>
+            <div>
+              <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;">Click "Generate &amp; Copy Application"</div>
+              <div style="font-size:12px;color:var(--muted);line-height:1.5;">Your application message will be generated and <strong>automatically copied</strong> to your clipboard.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:12px;align-items:flex-start;">
+            <div style="width:26px;height:26px;min-width:26px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;">3</div>
+            <div>
+              <div style="font-size:13px;font-weight:700;color:var(--text);margin-bottom:2px;">Paste &amp; Send on WhatsApp</div>
+              <div style="font-size:12px;color:var(--muted);line-height:1.5;">Open the recruiter's WhatsApp chat, long press the message box, tap <strong>Paste</strong>, attach your resume, and hit <strong>Send</strong>.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Personal -->
     <div class="card">
       <div class="card-title">Personal Information</div>
@@ -384,14 +435,20 @@ textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
     <div class="instruction-box">
       <div class="inst-title">
         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#92700a" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        How to send your application
+        Almost there! Send this to your recruiter
       </div>
+      <p style="font-size:13px;color:#7a6010;margin-bottom:10px;line-height:1.6;">
+        Your application message is ready and has been <strong>copied to your clipboard</strong>. Now follow these steps to send it to the concerned recruiter on WhatsApp:
+      </p>
       <ol>
-        <li>Your message has been <strong>copied automatically</strong> ✓</li>
-        <li>Open WhatsApp and go to the recruiter's chat</li>
-        <li>Paste the copied message and attach your resume</li>
-        <li>Hit send!</li>
+        <li>Open <strong>WhatsApp</strong> and go to the <strong>recruiter's chat</strong></li>
+        <li><strong>Long press</strong> on the message box and tap <strong>Paste</strong></li>
+        <li>Attach your <strong>resume</strong> to the same message</li>
+        <li>Tap <strong>Send</strong> 🚀</li>
       </ol>
+      <p style="font-size:12px;color:#92700a;margin-top:10px;background:#fff8dc;border-radius:8px;padding:8px 10px;border-left:3px solid #f5c518;">
+        💡 You can also use the <strong>Copy again</strong> button below if needed.
+      </p>
     </div>
 
     <div class="output-card">
