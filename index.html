@@ -23,104 +23,64 @@
   --shadow:      0 2px 12px rgba(0,0,0,0.07);
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  min-height: 100vh;
-}
+body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
 
 /* Header */
 .header {
   background: linear-gradient(145deg, #1aab52 0%, #25D366 100%);
-  padding: 26px 20px 40px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+  padding: 26px 20px 40px; text-align: center;
+  position: relative; overflow: hidden;
 }
 .header::after {
-  content: '';
-  position: absolute;
-  bottom: -30px; left: 50%;
-  transform: translateX(-50%);
-  width: 130%; height: 60px;
-  background: var(--bg);
-  border-radius: 50%;
+  content: ''; position: absolute; bottom: -30px; left: 50%;
+  transform: translateX(-50%); width: 130%; height: 60px;
+  background: var(--bg); border-radius: 50%;
 }
 .header-icon {
-  width: 48px; height: 48px;
-  background: rgba(255,255,255,0.2);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  margin: 0 auto 10px;
-  border: 2px solid rgba(255,255,255,0.35);
+  width: 48px; height: 48px; background: rgba(255,255,255,0.2);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 10px; border: 2px solid rgba(255,255,255,0.35);
 }
 .header-icon svg { width: 22px; height: 22px; fill: #fff; }
 .header h1 { font-size: clamp(17px, 5vw, 21px); font-weight: 700; color: #fff; margin-bottom: 3px; }
 .header p  { font-size: 12px; color: rgba(255,255,255,0.82); }
 
-/* Page wrap */
-.wrap {
-  max-width: 480px;
-  margin: 0 auto;
-  padding: 28px 14px 30px;
-}
+.wrap { max-width: 480px; margin: 0 auto; padding: 28px 14px 30px; }
 
 /* Card */
 .card {
-  background: var(--card);
-  border-radius: var(--radius);
-  border: 1.5px solid var(--border);
-  box-shadow: var(--shadow);
-  padding: 18px 16px;
-  margin-bottom: 14px;
+  background: var(--card); border-radius: var(--radius);
+  border: 1.5px solid var(--border); box-shadow: var(--shadow);
+  padding: 18px 16px; margin-bottom: 14px;
 }
 .card-title {
-  font-size: 12px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 0.5px;
-  color: var(--green-dark);
-  margin-bottom: 14px;
+  font-size: 12px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.5px; color: var(--green-dark); margin-bottom: 14px;
   display: flex; align-items: center; gap: 7px;
 }
 .card-title::before {
-  content: '';
-  display: inline-block;
-  width: 3px; height: 14px;
-  background: var(--green);
-  border-radius: 2px;
+  content: ''; display: inline-block; width: 3px; height: 14px;
+  background: var(--green); border-radius: 2px;
 }
 
-/* Form groups */
+/* Form */
 .form-group { margin-bottom: 12px; }
 .form-row   { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-label {
-  display: block;
-  font-size: 11.5px; font-weight: 600;
-  color: var(--muted); margin-bottom: 5px;
-}
+label { display: block; font-size: 11.5px; font-weight: 600; color: var(--muted); margin-bottom: 5px; }
 label .req { color: var(--error); margin-left: 1px; }
 
 input, select, textarea {
-  width: 100%; padding: 11px 13px;
-  background: #f8f9fb;
-  border: 1.5px solid var(--border);
-  border-radius: 10px;
-  color: var(--text);
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  width: 100%; padding: 11px 13px; background: #f8f9fb;
+  border: 1.5px solid var(--border); border-radius: 10px;
+  color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 14px; outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  -webkit-appearance: none;
+  transition: border-color 0.2s, box-shadow 0.2s; -webkit-appearance: none;
 }
 input::placeholder, textarea::placeholder { color: var(--placeholder); }
 input:focus, select:focus, textarea:focus {
-  border-color: var(--green);
-  box-shadow: 0 0 0 3px var(--green-glow);
-  background: #fff;
+  border-color: var(--green); box-shadow: 0 0 0 3px var(--green-glow); background: #fff;
 }
-input.err, select.err, textarea.err {
-  border-color: var(--error); background: var(--error-bg);
-}
+input.err, select.err, textarea.err { border-color: var(--error); background: var(--error-bg); }
 select {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat; background-position: right 12px center;
@@ -135,12 +95,9 @@ textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
 .pill-group { display: flex; gap: 8px; flex-wrap: wrap; }
 .pill-group input[type="radio"] { display: none; }
 .pill-group label {
-  font-size: 13px; font-weight: 500;
-  padding: 8px 18px;
-  border: 1.5px solid var(--border);
-  border-radius: 30px; cursor: pointer;
-  color: var(--muted); background: #f8f9fb;
-  transition: all 0.18s;
+  font-size: 13px; font-weight: 500; padding: 8px 18px;
+  border: 1.5px solid var(--border); border-radius: 30px; cursor: pointer;
+  color: var(--muted); background: #f8f9fb; transition: all 0.18s;
   letter-spacing: 0; text-transform: none; margin: 0;
 }
 .pill-group input[type="radio"]:checked + label {
@@ -148,117 +105,118 @@ textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
   color: #fff; box-shadow: 0 2px 8px var(--green-glow);
 }
 
+/* ── Live Preview box ── */
+.preview-section { margin-bottom: 14px; }
+
+.preview-hint {
+  display: flex; align-items: center; gap: 8px;
+  background: #eef6ff; border: 1.5px solid #bdd9f7;
+  border-radius: 10px; padding: 10px 14px; margin-bottom: 10px;
+}
+.preview-hint svg { width: 16px; height: 16px; flex-shrink: 0; fill: #2c7be5; }
+.preview-hint p { font-size: 12px; color: #1a4e8a; line-height: 1.5; }
+.preview-hint strong { font-weight: 700; }
+
+.preview-card {
+  background: var(--card); border-radius: var(--radius);
+  border: 1.5px dashed #b5e0c5; box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.preview-card-header {
+  background: var(--green-light); border-bottom: 1.5px dashed #b5e0c5;
+  padding: 10px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.preview-card-header-left {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 700; color: var(--green-dark);
+}
+.preview-card-header-left svg { width: 14px; height: 14px; fill: var(--green-dark); }
+.live-badge {
+  font-size: 10px; font-weight: 700; color: var(--green-dark);
+  background: #c5f0d6; border-radius: 20px; padding: 2px 9px;
+  letter-spacing: 0.3px; animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+
+.preview-body {
+  padding: 14px 16px;
+  font-size: 13px; line-height: 2;
+  color: var(--text); white-space: pre-wrap;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: #fafbfc;
+}
+
+/* highlight filled values */
+.pv { color: #1aab52; font-weight: 600; }
+/* placeholder dash style */
+.ph { color: #c0c9d6; font-style: italic; }
+
 /* Generate button */
 .btn-generate {
-  width: 100%; padding: 15px;
-  background: var(--green);
-  color: #fff; border: none;
-  border-radius: var(--radius);
+  width: 100%; padding: 15px; background: var(--green);
+  color: #fff; border: none; border-radius: var(--radius);
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 15px; font-weight: 700;
-  cursor: pointer;
+  font-size: 15px; font-weight: 700; cursor: pointer;
   box-shadow: 0 4px 16px rgba(37,211,102,0.3);
-  transition: all 0.2s;
-  display: flex; align-items: center; justify-content: center; gap: 8px;
+  transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin-bottom: 14px;
 }
 .btn-generate svg { width: 18px; height: 18px; fill: #fff; }
 .btn-generate:active { background: var(--green-dark); transform: scale(0.98); }
 
-/* ── Output section ── */
+/* Output section */
 #outputSection { display: none; }
 
 .output-card {
-  background: var(--card);
-  border-radius: var(--radius);
-  border: 1.5px solid var(--border);
-  box-shadow: var(--shadow);
-  overflow: hidden;
-  margin-bottom: 14px;
+  background: var(--card); border-radius: var(--radius);
+  border: 1.5px solid var(--border); box-shadow: var(--shadow);
+  overflow: hidden; margin-bottom: 14px;
 }
-
 .output-header {
-  background: var(--green-light);
-  border-bottom: 1.5px solid #c5ebd5;
-  padding: 13px 16px;
-  display: flex; align-items: center; justify-content: space-between;
+  background: var(--green-light); border-bottom: 1.5px solid #c5ebd5;
+  padding: 13px 16px; display: flex; align-items: center; justify-content: space-between;
 }
 .output-header-title {
-  font-size: 13px; font-weight: 700;
-  color: var(--green-dark);
+  font-size: 13px; font-weight: 700; color: var(--green-dark);
   display: flex; align-items: center; gap: 6px;
 }
 .output-header-title svg { width: 16px; height: 16px; fill: var(--green-dark); }
-
 .copy-btn {
-  padding: 6px 14px;
-  background: var(--green); color: #fff;
+  padding: 6px 14px; background: var(--green); color: #fff;
   border: none; border-radius: 20px;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 12px; font-weight: 600;
-  cursor: pointer; transition: all 0.18s;
+  font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.18s;
   display: flex; align-items: center; gap: 5px;
 }
 .copy-btn svg { width: 13px; height: 13px; fill: #fff; }
-.copy-btn:active { background: var(--green-dark); }
 .copy-btn.copied { background: #1aab52; }
-
 .output-body {
-  padding: 16px;
-  font-size: 13.5px;
-  line-height: 2;
-  color: var(--text);
-  white-space: pre-wrap;
+  padding: 16px; font-size: 13.5px; line-height: 2;
+  color: var(--text); white-space: pre-wrap;
   font-family: 'Plus Jakarta Sans', sans-serif;
   background: #fafbfc;
-  border-radius: 0 0 12px 12px;
 }
 
 /* Instruction box */
 .instruction-box {
-  background: #fffbea;
-  border: 1.5px solid #f5e17a;
-  border-radius: var(--radius);
-  padding: 14px 16px;
-  margin-bottom: 14px;
+  background: #fffbea; border: 1.5px solid #f5e17a;
+  border-radius: var(--radius); padding: 14px 16px; margin-bottom: 14px;
 }
 .instruction-box .inst-title {
-  font-size: 13px; font-weight: 700;
-  color: #92700a; margin-bottom: 8px;
+  font-size: 13px; font-weight: 700; color: #92700a; margin-bottom: 8px;
   display: flex; align-items: center; gap: 6px;
 }
-.instruction-box ol {
-  padding-left: 18px;
-  font-size: 13px; color: #7a6010; line-height: 1.8;
-}
-
-.wa-btn {
-  width: 100%; padding: 15px;
-  background: linear-gradient(135deg, #25D366, #1aab52);
-  color: #fff; border: none;
-  border-radius: var(--radius);
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 15px; font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 4px 18px rgba(37,211,102,0.35);
-  transition: all 0.2s;
-  display: flex; align-items: center; justify-content: center; gap: 9px;
-  margin-bottom: 10px;
-}
-.wa-btn svg { width: 21px; height: 21px; fill: #fff; }
-.wa-btn:active { transform: scale(0.98); }
+.instruction-box ol { padding-left: 18px; font-size: 13px; color: #7a6010; line-height: 1.9; }
+.instruction-box ol li { margin-bottom: 2px; }
 
 .edit-btn {
-  width: 100%; padding: 12px;
-  background: #f3f4f6; color: var(--muted);
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius);
+  width: 100%; padding: 12px; background: #f3f4f6; color: var(--muted);
+  border: 1.5px solid var(--border); border-radius: var(--radius);
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 14px; font-weight: 600;
-  cursor: pointer; transition: all 0.2s;
+  font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s;
 }
 .edit-btn:active { background: #e5e7eb; }
-
-.divider { text-align: center; font-size: 11px; color: var(--placeholder); margin: 4px 0 10px; }
 </style>
 </head>
 <body>
@@ -273,7 +231,7 @@ textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
 
 <div class="wrap">
 
-  <!-- ── FORM SECTION ── -->
+  <!-- ══ FORM SECTION ══ -->
   <div id="formSection">
 
     <!-- Personal -->
@@ -282,42 +240,42 @@ textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
 
       <div class="form-group">
         <label>Name <span class="req">*</span></label>
-        <input type="text" id="name" placeholder="Enter your full name" autocomplete="name">
+        <input type="text" id="name" placeholder="Enter your full name" autocomplete="name" oninput="updatePreview()">
         <div class="error-msg" id="nameErr">Name is required.</div>
       </div>
 
       <div class="form-group">
         <label>Father's Name</label>
-        <input type="text" id="father" placeholder="Father's full name">
+        <input type="text" id="father" placeholder="Father's full name" oninput="updatePreview()">
       </div>
 
       <div class="form-row">
         <div class="form-group">
           <label>Phone Number <span class="req">*</span></label>
-          <input type="tel" id="phone" placeholder="10-digit" maxlength="10" inputmode="numeric" autocomplete="tel">
+          <input type="tel" id="phone" placeholder="10-digit" maxlength="10" inputmode="numeric" autocomplete="tel" oninput="updatePreview()">
           <div class="error-msg" id="phoneErr">Enter valid 10-digit number.</div>
         </div>
         <div class="form-group">
           <label>Alternative Number <span class="req">*</span></label>
-          <input type="tel" id="altphone" placeholder="10-digit" maxlength="10" inputmode="numeric">
+          <input type="tel" id="altphone" placeholder="10-digit" maxlength="10" inputmode="numeric" oninput="updatePreview()">
           <div class="error-msg" id="altphoneErr">Enter valid 10-digit number.</div>
         </div>
       </div>
 
       <div class="form-group">
         <label>Email ID</label>
-        <input type="email" id="email" placeholder="yourname@email.com" inputmode="email" autocomplete="email">
+        <input type="email" id="email" placeholder="yourname@email.com" inputmode="email" autocomplete="email" oninput="updatePreview()">
         <div class="error-msg" id="emailErr">Enter a valid email address.</div>
       </div>
 
       <div class="form-row">
         <div class="form-group">
           <label>Date of Birth</label>
-          <input type="date" id="dob" max="">
+          <input type="date" id="dob" max="" onchange="updatePreview()">
         </div>
         <div class="form-group">
           <label>Aadhar Number</label>
-          <input type="text" id="aadhaar" placeholder="12 digits" maxlength="12" inputmode="numeric">
+          <input type="text" id="aadhaar" placeholder="12 digits" maxlength="12" inputmode="numeric" oninput="updatePreview()">
           <div class="error-msg" id="aadhaarErr">Must be 12 digits.</div>
         </div>
       </div>
@@ -325,11 +283,11 @@ textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
       <div class="form-group">
         <label>Gender</label>
         <div class="pill-group">
-          <input type="radio" name="gender" id="gMale" value="Male">
+          <input type="radio" name="gender" id="gMale" value="Male" onchange="updatePreview()">
           <label for="gMale">Male</label>
-          <input type="radio" name="gender" id="gFemale" value="Female">
+          <input type="radio" name="gender" id="gFemale" value="Female" onchange="updatePreview()">
           <label for="gFemale">Female</label>
-          <input type="radio" name="gender" id="gOther" value="Other">
+          <input type="radio" name="gender" id="gOther" value="Other" onchange="updatePreview()">
           <label for="gOther">Other</label>
         </div>
       </div>
@@ -337,15 +295,15 @@ textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
       <div class="form-group" style="margin-bottom:0">
         <label>Marital Status</label>
         <div class="pill-group">
-          <input type="radio" name="marital" id="mSingle" value="Single" onchange="toggleMaritalOther()">
+          <input type="radio" name="marital" id="mSingle" value="Single" onchange="toggleMaritalOther(); updatePreview();">
           <label for="mSingle">Single</label>
-          <input type="radio" name="marital" id="mMarried" value="Married" onchange="toggleMaritalOther()">
+          <input type="radio" name="marital" id="mMarried" value="Married" onchange="toggleMaritalOther(); updatePreview();">
           <label for="mMarried">Married</label>
-          <input type="radio" name="marital" id="mOther" value="Other" onchange="toggleMaritalOther()">
+          <input type="radio" name="marital" id="mOther" value="Other" onchange="toggleMaritalOther(); updatePreview();">
           <label for="mOther">Other</label>
         </div>
         <div id="maritalOtherWrap" style="display:none; margin-top:10px;">
-          <input type="text" id="maritalOtherText" placeholder="Please specify your marital status">
+          <input type="text" id="maritalOtherText" placeholder="Please specify your marital status" oninput="updatePreview()">
           <div class="error-msg" id="maritalOtherErr">Please specify your marital status.</div>
         </div>
       </div>
@@ -357,38 +315,58 @@ textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
 
       <div class="form-group">
         <label>Highest Qualification</label>
-        <input type="text" id="qualification" placeholder="e.g. B.Tech, 12th Pass, MBA">
+        <input type="text" id="qualification" placeholder="e.g. B.Tech, 12th Pass, MBA" oninput="updatePreview()">
       </div>
 
       <div class="form-group">
         <label>Residential Address with Pincode</label>
-        <textarea id="address" placeholder="House No, Street, City, State — Pincode"></textarea>
+        <textarea id="address" placeholder="House No, Street, City, State — Pincode" oninput="updatePreview()"></textarea>
       </div>
 
       <div class="form-group">
         <label>Spoken Languages</label>
-        <input type="text" id="languages" placeholder="e.g. Telugu, Hindi, English">
+        <input type="text" id="languages" placeholder="e.g. Telugu, Hindi, English" oninput="updatePreview()">
       </div>
 
       <div class="form-group">
         <label>Experience</label>
-        <input type="text" id="experience" placeholder="e.g. 2 years in Sales, Fresher">
+        <input type="text" id="experience" placeholder="e.g. 2 years in Sales, Fresher" oninput="updatePreview()">
       </div>
 
       <div class="form-group" style="margin-bottom:0">
         <label>How Often Will You Be Able To Join?</label>
-        <input type="text" id="joining" placeholder="e.g. Immediately, After 15 days">
+        <input type="text" id="joining" placeholder="e.g. Immediately, After 15 days" oninput="updatePreview()">
+      </div>
+    </div>
+
+    <!-- ── Live Preview ── -->
+    <div class="preview-section">
+
+      <div class="preview-hint">
+        <svg viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+        <p><strong>Live Preview</strong> — This is exactly how your application message will look. It updates as you fill the form above. When you click <strong>Generate</strong>, this message will be copied automatically.</p>
+      </div>
+
+      <div class="preview-card">
+        <div class="preview-card-header">
+          <div class="preview-card-header-left">
+            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            WhatsApp Message Preview
+          </div>
+          <span class="live-badge">● LIVE</span>
+        </div>
+        <div class="preview-body" id="livePreview"></div>
       </div>
     </div>
 
     <button class="btn-generate" onclick="generateFormat()">
       <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      Generate Application Format
+      Generate &amp; Copy Application
     </button>
 
   </div><!-- /formSection -->
 
-  <!-- ── OUTPUT SECTION ── -->
+  <!-- ══ OUTPUT SECTION ══ -->
   <div id="outputSection">
 
     <!-- Toast -->
@@ -409,6 +387,7 @@ textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
         How to send your application
       </div>
       <ol>
+        <li>Your message has been <strong>copied automatically</strong> ✓</li>
         <li>Open WhatsApp and go to the recruiter's chat</li>
         <li>Paste the copied message and attach your resume</li>
         <li>Hit send!</li>
@@ -423,7 +402,7 @@ textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
         </div>
         <button class="copy-btn" id="copyBtn" onclick="copyText()">
           <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-          Copy
+          Copy again
         </button>
       </div>
       <div class="output-body" id="outputText"></div>
@@ -433,7 +412,7 @@ textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
 
   </div><!-- /outputSection -->
 
-</div>
+</div><!-- /wrap -->
 
 <script>
 document.getElementById("dob").max = new Date().toISOString().split("T")[0];
@@ -444,15 +423,70 @@ function v(id) {
   const el = document.getElementById(id);
   return el ? el.value.trim() : "";
 }
+
 function radio(name) {
   const el = document.querySelector(`input[name="${name}"]:checked`);
   if (!el) return "";
   if (name === "marital" && el.value === "Other") {
     const custom = v("maritalOtherText");
-    return custom ? custom : "Other";
+    return custom || "Other";
   }
   return el.value;
 }
+
+function formatDOB(val) {
+  if (!val) return "";
+  const [y, m, d] = val.split("-");
+  return `${d}-${m}-${y}`;
+}
+
+function buildMessage(highlighted) {
+  // For live preview we mark filled values; for final output plain text
+  const f = (label, val) => {
+    if (highlighted) {
+      const display = val
+        ? `<span class="pv">${val}</span>`
+        : `<span class="ph">___________</span>`;
+      return `${label}: ${display}`;
+    }
+    return `${label}: ${val || ""}`;
+  };
+
+  const fields = [
+    ["Name",                              v("name")],
+    ["Father's Name",                     v("father")],
+    ["Phone Number",                      v("phone")],
+    ["Alternative Number",                v("altphone")],
+    ["Email ID",                          v("email")],
+    ["Date of Birth",                     formatDOB(v("dob"))],
+    ["Gender",                            radio("gender")],
+    ["Marital status",                    radio("marital")],
+    ["Aadhar Number",                     v("aadhaar")],
+    ["Highest Qualification",             v("qualification")],
+    ["Residential address with pincode",  v("address")],
+    ["Spoken Languages",                  v("languages")],
+    ["Experience",                        v("experience")],
+    ["How often will you be able to join?", v("joining")],
+  ];
+
+  if (highlighted) {
+    return `Kindly fill this and send me back\n\n` +
+      fields.map(([l, val]) => f(l, val)).join("\n") +
+      `\n\nAttach your resume`;
+  } else {
+    return `Kindly fill this and send me back\n\n` +
+      fields.map(([l, val]) => `${l}: ${val}`).join("\n") +
+      `\n\nAttach your resume`;
+  }
+}
+
+function updatePreview() {
+  const el = document.getElementById("livePreview");
+  el.innerHTML = buildMessage(true);
+}
+
+// Init preview on load
+updatePreview();
 
 function toggleMaritalOther() {
   const isOther = document.getElementById("mOther").checked;
@@ -466,6 +500,7 @@ function toggleMaritalOther() {
     document.getElementById("maritalOtherErr").classList.remove("show");
   }
 }
+
 function setErr(id, show) {
   const el  = document.getElementById(id);
   const err = document.getElementById(id + "Err");
@@ -478,24 +513,19 @@ function validate() {
   const name  = v("name"), phone = v("phone"),
         alt   = v("altphone"), email = v("email"), aadh = v("aadhaar");
 
-  setErr("name",     !name);                                                        if (!name) ok = false;
-  setErr("phone",    !/^[0-9]{10}$/.test(phone));                                   if (!/^[0-9]{10}$/.test(phone)) ok = false;
-  setErr("altphone", !/^[0-9]{10}$/.test(alt));                                     if (!/^[0-9]{10}$/.test(alt)) ok = false;
-  setErr("email",    email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));           if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) ok = false;
-  setErr("aadhaar",  aadh  && !/^[0-9]{12}$/.test(aadh));                           if (aadh  && !/^[0-9]{12}$/.test(aadh)) ok = false;
+  setErr("name",    !name);                                                        if (!name) ok = false;
+  setErr("phone",   !/^[0-9]{10}$/.test(phone));                                   if (!/^[0-9]{10}$/.test(phone)) ok = false;
+  setErr("altphone",!/^[0-9]{10}$/.test(alt));                                     if (!/^[0-9]{10}$/.test(alt)) ok = false;
+  setErr("email",   email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));           if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) ok = false;
+  setErr("aadhaar", aadh  && !/^[0-9]{12}$/.test(aadh));                           if (aadh  && !/^[0-9]{12}$/.test(aadh)) ok = false;
 
-  // marital other text required if "Other" selected
   if (document.getElementById("mOther").checked) {
-    const otherText = v("maritalOtherText");
+    const ot = v("maritalOtherText");
     const errEl = document.getElementById("maritalOtherErr");
     const inEl  = document.getElementById("maritalOtherText");
-    if (!otherText) {
-      inEl.classList.add("err"); errEl.classList.add("show"); ok = false;
-    } else {
-      inEl.classList.remove("err"); errEl.classList.remove("show");
-    }
+    if (!ot) { inEl.classList.add("err"); errEl.classList.add("show"); ok = false; }
+    else     { inEl.classList.remove("err"); errEl.classList.remove("show"); }
   }
-
   return ok;
 }
 
@@ -506,35 +536,10 @@ function generateFormat() {
     return;
   }
 
-  const f = (label, val) => `${label}: ${val || ""}`;
-  const formatDOB = (val) => {
-    if (!val) return "";
-    const [y, m, d] = val.split("-");
-    return `${d}-${m}-${y}`;
-  };
-
-  generatedMsg =
-`Kindly fill this and send me back
-
-${f("Name",                              v("name"))}
-${f("Father's Name",                     v("father"))}
-${f("Phone Number",                      v("phone"))}
-${f("Alternative Number",                v("altphone"))}
-${f("Email ID",                          v("email"))}
-${f("Date of Birth",                     formatDOB(v("dob")))}
-${f("Gender",                            radio("gender"))}
-${f("Marital status",                    radio("marital"))}
-${f("Aadhar Number",                     v("aadhaar"))}
-${f("Highest Qualification",             v("qualification"))}
-${f("Residential address with pincode",  v("address"))}
-${f("Spoken Languages",                  v("languages"))}
-${f("Experience",                        v("experience"))}
-${f("How often will you be able to join?", v("joining"))}
-
-Attach your resume`;
+  generatedMsg = buildMessage(false);
 
   document.getElementById("outputText").textContent = generatedMsg;
-  document.getElementById("formSection").style.display  = "none";
+  document.getElementById("formSection").style.display   = "none";
   document.getElementById("outputSection").style.display = "block";
   window.scrollTo({ top: 0, behavior: "smooth" });
 
@@ -542,15 +547,7 @@ Attach your resume`;
   const doCopy = () => {
     const toast = document.getElementById("copyToast");
     toast.style.display = "flex";
-    setTimeout(() => { toast.style.display = "none"; }, 2800);
-    // also update copy button state
-    const btn = document.getElementById("copyBtn");
-    btn.classList.add("copied");
-    btn.innerHTML = `<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg> Copied!`;
-    setTimeout(() => {
-      btn.classList.remove("copied");
-      btn.innerHTML = `<svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy again`;
-    }, 2800);
+    setTimeout(() => { toast.style.display = "none"; }, 3000);
   };
   navigator.clipboard.writeText(generatedMsg).then(doCopy).catch(() => {
     const ta = document.createElement("textarea");
@@ -567,21 +564,17 @@ function copyText() {
     btn.innerHTML = `<svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12" stroke="#fff" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg> Copied!`;
     setTimeout(() => {
       btn.classList.remove("copied");
-      btn.innerHTML = `<svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy`;
+      btn.innerHTML = `<svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy again`;
     }, 2500);
   }).catch(() => {
-    // fallback for older browsers
     const ta = document.createElement("textarea");
-    ta.value = generatedMsg;
-    document.body.appendChild(ta);
-    ta.select(); document.execCommand("copy");
-    document.body.removeChild(ta);
+    ta.value = generatedMsg; document.body.appendChild(ta);
+    ta.select(); document.execCommand("copy"); document.body.removeChild(ta);
     const btn = document.getElementById("copyBtn");
     btn.textContent = "Copied!";
-    setTimeout(() => { btn.textContent = "Copy"; }, 2500);
+    setTimeout(() => { btn.textContent = "Copy again"; }, 2500);
   });
 }
-
 
 function goBackToForm() {
   document.getElementById("outputSection").style.display = "none";
